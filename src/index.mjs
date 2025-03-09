@@ -19,6 +19,9 @@ const app = express();  // express: сервер жасауға арналған
 
 app.use(express.json());//: чтобы приложение могло принимать и обрабатывать JSON данные.
 
+app.get("/", (req, res) => {
+    res.send("Server is alive");
+});
 
 app.use(cors({ origin: true, credentials: true }));
 //cors-это стандарт, позволяющий предоставлять веб-страницам доступ к объектам сторонних интернет-ресурсов.
