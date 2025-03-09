@@ -11,7 +11,6 @@ import pgSimpleSession from "connect-pg-simple";
 const PgSession = pgSimpleSession(session);
 import "./helpers/local-strategy.mjs"
 import passport from "passport";
-import todo from "./routes/todo.mjs"
 import cors from "cors";
 
 //passport және local-strategy: аутентификация үшін.
@@ -41,7 +40,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(todo)
 app.use("/auth",AuthRouter)
 app.use(cartRouter)
 app.use(productRouter)
