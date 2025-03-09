@@ -1,8 +1,8 @@
 services:
   - type: web
-    name: my-backend
+    name: rose-project
     env: node
-    plan: free
-    rootDir: src
+    rootDir: .          # Мұнда "src" емес, "." болу керек
     buildCommand: npm install
-    startCommand: node index.mjs
+    startCommand: node src/index.mjs
+
