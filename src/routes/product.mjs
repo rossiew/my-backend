@@ -1,6 +1,6 @@
 
 import {Router} from "express"
-import ProductController from "../controllers/product.mjs";
+import ProductController from "../controllers/Product.mjs";
 import {validateId,resolveProduct} from "../helpers/middlewares.mjs";
 
 const router=Router();
