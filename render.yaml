@@ -3,5 +3,7 @@ services:
     name: my-backend
     env: node
     plan: free
+    rootDir: src
     buildCommand: npm install
-    startCommand: node src/index.mjs
+    startCommand: node index.mjs
+пшк
