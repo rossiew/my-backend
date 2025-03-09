@@ -6,4 +6,3 @@ services:
     rootDir: src
     buildCommand: npm install
     startCommand: node index.mjs
-пшк
