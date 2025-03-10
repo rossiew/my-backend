@@ -26,20 +26,24 @@ app.get("/", (req, res) => {
 app.use(cors({ origin: true, credentials: true }));
 //cors-это стандарт, позволяющий предоставлять веб-страницам доступ к объектам сторонних интернет-ресурсов.
 //credentials: true - сервер адамды есінде сақтап қалу үшін
-app.use(session({
-    secret: "secret",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 7  //// Сессияның өмір сүру уақыты (1 апта)
-    },
-    store: new PgSession({
-        pool: pool,  //pool: подключение к базе данных PostgreSQL.
-        tableName: "session",
-    })
-}));
+
 //session-бұл сервер мен клиент  арасында уақытша байланыс орнатуға арналған механизм.
 
+
+app.use(session({
+    store: new PgSession({
+      pool: pool, //pool: подключение к базе данных PostgreSQL.
+      tableName: "session", // ← Міндетті түрде!
+    }),
+    secret: "your-secret-key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, //// Сессияның өмір сүру уақыты (1 апта)
+      secure: false, // HTTPS болса true ет
+    },
+  }));
+  
 
 app.use(passport.initialize());
 app.use(passport.session());
