@@ -18,6 +18,7 @@ import cors from "cors";
 const app = express();  // express: сервер жасауға арналған фреймворк.
 
 app.use(express.json());//: чтобы приложение могло принимать и обрабатывать JSON данные.
+app.use("/users", usersRouter);
 
 app.get("/", (req, res) => {
     res.send("Server is alive");
